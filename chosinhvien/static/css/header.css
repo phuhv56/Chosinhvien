@@ -1,0 +1,15 @@
+/* CSS Document */
+
+.header {
+	width: 60%;
+	height: 110px;
+	margin: auto;
+	background-color:#FEF5C7;
+	margin-top: 30px;
+}
+
+.logo {
+	width: 500px;
+	height: 110px;
+	background:url(../images/logo.png);
+}
