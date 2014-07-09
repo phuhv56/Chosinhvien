@@ -11,5 +11,14 @@
 .logo {
 	width: 500px;
 	height: 110px;
+	float:left;
 	background:url(../images/logo.png);
+}
+
+.user_info{
+    height: 50px;
+    margin-top: 50px;
+    margin-right: 5px;
+    width: 200px;
+    float: right;
 }

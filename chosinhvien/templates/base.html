@@ -19,7 +19,7 @@
             	<a href="#"> Danh Mục Sản Phẩm </a>
 			</div>
             <div class="t_right">
-	            <a href="#"> Đăng Tin Miễn Phí </a>
+	            <a href="/show/create/"> Đăng Tin Miễn Phí </a>
 			</div>
             
             <div class="clr"> </div>
@@ -34,6 +34,10 @@
     	<div class="header"> 
         	<div class="logo"> 
             </div>
+            <div class="user_info">
+                {% block username %}
+                {% endblock %}
+            </div>
         </div>
         <div class="clr"> </div>
         <!-- HEADER -->
@@ -43,13 +47,17 @@
         <div class="menu"> 
         	<ul class="tab">
             {% block sidebar %}
-            <li> <a href=""> Trang chủ</a> </li>
-            <li> <a href=""> Đăng tin</a> </li>
+            <li> <a href="/show/all/"> Trang chủ</a> </li>
+            <li> <a href="/show/create/"> Đăng tin</a> </li>
             <li> <a href=""> Sản phẩm mới</a> </li>
-            <li> <a href=""> </a> </li>
+            <li> <a href="/accounts/login/"> Đăng Nhập</a> </li>
+            <li> <a href=""> Đăng Ký </a>  </li>
             <li> <a href=""> </a> </li>
             {% endblock %}
             </ul>
+
+
+
         </div>
         <!-- MENU -->
         

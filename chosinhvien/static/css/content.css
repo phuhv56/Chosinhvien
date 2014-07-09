@@ -3,7 +3,7 @@
 .content {
 	background:#FEF5C7;
 	width: 60%;
-	min-height: 1000px;
+	height: auto;
 	margin: auto;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .list {
-    min_height: 800px;
+    height: 1500px;
     padding-top: 20px;
     width: 90%;
     margin: auto;

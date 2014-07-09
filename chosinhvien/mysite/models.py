@@ -10,13 +10,14 @@ class Product(models.Model):
     # user = models.ForeignKey('Member')
     category = models.ForeignKey('Category')
     value = models.IntegerField()
-    image = models.FileField(upload_to='images/upload')
+    image = models.ImageField(upload_to='images/upload/')
     quantity = models.IntegerField()
-    time_post = models.DateField()
+    time_post = models.DateField(auto_created=True)
     status = models.BooleanField(default=0)
 
     def __unicode__(self):
         return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200)

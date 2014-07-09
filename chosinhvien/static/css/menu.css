@@ -25,7 +25,8 @@ ul.tab li a, ul.tab li a:visited {
 	display: block;
 	float: left;
 	text-decoration: none;
-	width:100px;
+	padding-left: 15px;
+	padding-right: 15px;
 	text-align: center;
 	color:#CCC;
 }

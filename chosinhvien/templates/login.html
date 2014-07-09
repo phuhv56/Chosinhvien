@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+        {% block content %}
+        {% if form.errors %}
+            <p> Sorry that's not a valid username or password</p>
+        {% endif %}
+        <style>
+            input[type=text]{
+                height: 20px;
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+
+            input[type=password]{
+                height: 20px;
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+
+            label{
+                font-weight: bold;
+            }
+
+            input[type=submit] {
+                height: 20px;
+                width: 50px;
+            }
+
+        </style>
+        <form action="/accounts/auth/" method="post"> {% csrf_token %}
+            <table>
+                <tr>
+                    <td> <label for="username"> User name: </label></td>
+                    <td> <input type="text" name="username" value="" id="username"></td>
+                </tr>
+                <tr>
+
+                </tr>
+                <tr>
+                    <td> <label for="password"> Password: </label> </td>
+                    <td> <input type="password" name="password" value="" id="password"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"> <input type="submit" value="login" /> </td>
+                </tr>
+            </table>
+
+        </form>
+
+        {% endblock %}

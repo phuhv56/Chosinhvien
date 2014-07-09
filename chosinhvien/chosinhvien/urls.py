@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
+from django.templatetags.static import static
+from chosinhvien import settings
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -9,4 +11,10 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^show/', include('mysite.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^accounts/login/$', 'chosinhvien.views.login'),
+    url(r'^accounts/auth/$', 'chosinhvien.views.auth_view'),
+    url(r'^accounts/logout/$', 'chosinhvien.views.logout'),
+    url(r'^accounts/loggedin/$', 'chosinhvien.views.loggedin'),
+    url(r'^accounts/invalid/$', 'chosinhvien.views.invalid'),
 )
