@@ -91,11 +91,12 @@
 {% for product in products %}
 
 <div class="item">
-    <div class="image"> {% if person.image %} <img src="{{product.image.url}}"/> {% else %} <img src="{% static 'images/logo.jpg' %}"/> {% endif %}</div>
+    <div class="image"> {% if product.image %} <img src="{{product.image.url}}"/> {% else %} <img src="{% static 'images/logo.jpg' %}"/> {% endif %}</div>
     <div class="info">
         <div class="name"><a href='/show/product/{{product.slug}}/'> {{product.name}} </a></div>
         <div class="desc"><p> {{product.description|truncatewords:"30"}} </p></div>
         <div class="value"> {{product.value|intcomma }}</div>
+
     </div>
 </div>
 {% endfor %}

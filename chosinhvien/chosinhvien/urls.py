@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.templatetags.static import static
 from chosinhvien import settings
 
@@ -17,4 +18,5 @@ urlpatterns = patterns('',
     url(r'^accounts/logout/$', 'chosinhvien.views.logout'),
     url(r'^accounts/loggedin/$', 'chosinhvien.views.loggedin'),
     url(r'^accounts/invalid/$', 'chosinhvien.views.invalid'),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )

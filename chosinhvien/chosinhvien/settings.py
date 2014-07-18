@@ -102,7 +102,7 @@ STATICFILES_FINDER = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 )
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://127.0.0.1:8000/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -111,4 +111,4 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'mysite/templates'),
 )
 
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/admin-media/'

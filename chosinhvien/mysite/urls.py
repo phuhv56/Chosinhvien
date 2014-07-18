@@ -1,7 +1,9 @@
 # __author__ = 'Der Kaiser'
-
+from django.conf import settings
 
 from django.conf.urls import include, url, patterns
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.templatetags.static import static
 
 urlpatterns = patterns(
     '',
