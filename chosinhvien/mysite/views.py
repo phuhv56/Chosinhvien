@@ -1,4 +1,5 @@
 from django.core.context_processors import csrf
+from django.core.files.uploadhandler import FileUploadHandler
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext, Context
 from mysite.models import Product, Category
@@ -10,13 +11,12 @@ from django.http import HttpResponseRedirect
 
 
 def show_all(request):
-    user = 'phu'
-    user_session = 'phu'
+    user = ''
 
     if 'user' in request.COOKIES:
         user = request.COOKIES['user']
 
-    products = Product.objects.all().order_by('time_post')
+    products = Product.objects.all().order_by('-time_post')
     context = {'products': products, 'user': user}
     return render_to_response('show_all.html', context)
 
@@ -26,13 +26,13 @@ def product_detail(request, product_slug):
     context = {'product': product}
     return render_to_response('product_detail.html', context)
 
-
 def create(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
+            FileUploadHandler(request.FILES['image'])
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/show/all/')
     else:
         form = ProductForm()
 

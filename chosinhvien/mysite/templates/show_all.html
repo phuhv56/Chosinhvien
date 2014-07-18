@@ -24,9 +24,13 @@
     color:#CCC;
     }
 </style>
-
+{% if user == "" %}
+        <h2> Hi Friend </h2>
+        <h3><a href="/accounts/login/"> Click here to login </a></h3>
+{% else %}
 <h2> Hi {{user}} </h2>
 <h3><a href="/accounts/logout/"> Logout </a></h3>
+{% endif %}
 {% endblock %}
 
 {% block content %}

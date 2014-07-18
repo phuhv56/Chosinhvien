@@ -8,5 +8,5 @@ from mysite.models import Category, Product
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        exclude = ('slug', 'time_post', 'status', )
+        exclude = ('slug', 'time_post', 'status', 'id', )
 

@@ -3,6 +3,8 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
+from mysite.models import Product
+
 
 def login(request):
     c = {}
@@ -33,4 +35,9 @@ def invalid(request):
 
 def logout(request):
     auth.logout(request)
-    return render_to_response('logout.html')
+    products = Product.objects.all().order_by('-time_post')
+    context = {'products': products}
+
+    respone = render_to_response('logout.html', context)
+    respone.set_cookie('user', '')
+    return respone
