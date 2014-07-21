@@ -1,5 +1,7 @@
 {% extends "base.html"%}
 
+{% load humanize %}
+
 {% block title %}
 {{ product.name }}
 {% endblock %}
@@ -47,9 +49,10 @@
 <div class="item">
     <div class="image"><img src="{{product.image.url}}"/></div>
     <div class="info">
-        <div class="name"><a href='/show/product/{{product.slug}}/'> {{product.name}} </a></div>
-        <div class="desc"><p> {{product.description}} </p></div>
-        <div class="value"> {{product.value}}</div>
+        <div class="name"><a href='/show/product/{{product.slug}}/'>{{product.name}} </a></div>
+        <div class="desc"><p>{{product.description}} </p></div>
+        <div class="value">{{product.value|intcomma}}</div>
+        <div class="time">Đăng vào ngày {{product.time_post|date:"d/m/y"}}</div>
     </div>
 </div>
 {% endblock %}

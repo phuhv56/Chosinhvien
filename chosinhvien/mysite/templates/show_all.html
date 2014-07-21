@@ -25,8 +25,8 @@
     }
 </style>
 {% if user == "" %}
-        <h2> Hi Friend </h2>
-        <h3><a href="/accounts/login/"> Click here to login </a></h3>
+<h2> Hi Friend </h2>
+<h3><a href="/accounts/login/"> Click here to login </a></h3>
 {% else %}
 <h2> Hi {{user}} </h2>
 <h3><a href="/accounts/logout/"> Logout </a></h3>
@@ -48,9 +48,9 @@
     }
 
     .image img {
-    width: 80px;
-    height: 80px;
-    padding: 20px;
+    width: 100px;
+    height: 100px;
+    padding: 10px 10px 10px 30px;
     float: left;
     }
     .info {
@@ -86,21 +86,52 @@
     .name a:hover, .name a:active {
     text-decoration: underline;
     }
+
+    .value {
+    float: left;
+    }
+    .date {
+    float: right;
+    padding-right: 5px;
+    }
 </style>
 
 {% for product in products %}
 
 <div class="item">
-    <div class="image"> {% if product.image %} <img src="{{product.image.url}}"/> {% else %} <img src="{% static 'images/logo.jpg' %}"/> {% endif %}</div>
+    <div class="image"> {% if product.image %} <img src="{{product.image.url}}"/> {% else %} <img
+            src="{% static 'images/logo.jpg' %}"/> {% endif %}
+    </div>
     <div class="info">
         <div class="name"><a href='/show/product/{{product.slug}}/'> {{product.name}} </a></div>
         <div class="desc"><p> {{product.description|truncatewords:"30"}} </p></div>
-        <div class="value"> {{product.value|intcomma }}</div>
+        <div class="bott">
+            <div class="value"> {{product.value|intcomma }}</div>
+            <div class="date"> {{product.time_post|date:"d/m/y"}}</div>
+        </div>
 
     </div>
 </div>
 {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+            <a href="?page={{ products.previous_page_number }}">Previous_</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        </span>
+
+        {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}">Next_</a>
+        {% endif %}
+    </span>
+</div>
+
 {% else %}
 <h1> No products to show </h1>
 {% endif%}
+
+
 {% endblock %}
