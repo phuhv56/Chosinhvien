@@ -4,8 +4,10 @@
 
 {% load static %}
 
+{% load mysite_tags %}
+
 {% block username %}
-<style>
+<style xmlns="http://www.w3.org/1999/html">
     a{
     color:#CCC;
     }
@@ -94,6 +96,22 @@
     float: right;
     padding-right: 5px;
     }
+
+    .lastest a{
+    float: right;
+    padding-right: 10px;
+    font-color: #3B98B5;
+    }
+
+    .current {
+    float: right;
+    padding-right: 10px;
+    }
+
+    .older a{
+    float: right;
+    font-color: #3B98B5;
+    }
 </style>
 
 {% for product in products %}
@@ -107,7 +125,8 @@
         <div class="desc"><p> {{product.description|truncatewords:"30"}} </p></div>
         <div class="bott">
             <div class="value"> {{product.value|intcomma }}</div>
-            <div class="date"> {{product.time_post|date:"d/m/y"}}</div>
+            <div class="date">{{product.area}} {{product.time_post|age}}</div>
+            <!--  {{product.time_post|date:"d/m/y"}} {{product.time_post|naturaltime|capfirst}} -->
         </div>
 
     </div>
@@ -115,23 +134,56 @@
 {% endfor %}
 <div class="pagination">
     <span class="step-links">
-        {% if products.has_previous %}
-            <a href="?page={{ products.previous_page_number }}">Previous_</a>
-        {% endif %}
+        <div class="older">
+            {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}">Tin cũ hơn </br></a>
+            {% endif %}
+        </div>
 
-        <span class="current">
-            Page {{ products.number }} of {{ products.paginator.num_pages }}.
-        </span>
 
-        {% if products.has_next %}
-            <a href="?page={{ products.next_page_number }}">Next_</a>
-        {% endif %}
+        <div class="current">
+            <span>
+                 {{ products.number }} / {{ products.paginator.num_pages }}
+            </span>
+        </div>
+        <div class="lastest">
+            {% if products.has_previous %}
+            <a href="?page={{ products.previous_page_number }}">Tin mới hơn </br> </a>
+            {% endif %}
+        </div>
     </span>
 </div>
 
 {% else %}
 <h1> No products to show </h1>
 {% endif%}
+{% endblock %}
 
-
+{% block product_category %}
+<style>
+    .select_product {
+    height: 24px;
+    width: 200px;
+    margin: 10px;
+    }
+</style>
+<select class="select_product" \>
+{% for cate in categories %}
+<option value="">{{cate.name}}</option>
+{% endfor %}
+</select>
+{% endblock %}
+{% block provice %}
+<style>
+    .select_provice {
+    height: 24px;
+    width: 150px;
+    margin: 10px;
+    }
+</style>
+<select class="select_provice" \>
+{% for provice in provices %}
+<option value="">{{provice.name}}</option>
+{% endfor %}
+</select>
 {% endblock %}

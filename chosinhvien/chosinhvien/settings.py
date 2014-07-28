@@ -112,3 +112,5 @@ TEMPLATE_DIRS = (
 )
 
 ADMIN_MEDIA_PREFIX = '/admin-media/'
+
+AUTH_USER_MODEL = 'mysite.MyUser'

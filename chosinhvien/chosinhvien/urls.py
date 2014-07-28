@@ -19,4 +19,6 @@ urlpatterns = patterns('',
     url(r'^accounts/loggedin/$', 'chosinhvien.views.loggedin'),
     url(r'^accounts/invalid/$', 'chosinhvien.views.invalid'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'^accounts/register/$', 'chosinhvien.views.register'),
+    url(r'^accounts/register_success/$', 'chosinhvien.views.register_success'),
 )

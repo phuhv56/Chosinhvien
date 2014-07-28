@@ -53,6 +53,10 @@
         <div class="desc"><p>{{product.description}} </p></div>
         <div class="value">{{product.value|intcomma}}</div>
         <div class="time">Đăng vào ngày {{product.time_post|date:"d/m/y"}}</div>
+
+        <div> Số điện thoại liên hệ: {{user.phone}} </div>
+        <div> Người đăng sản phẩm: {{user.last_name}} {{user.first_name}} </div>
+        <div> Email: {{user.email}} </div>
     </div>
 </div>
 {% endblock %}

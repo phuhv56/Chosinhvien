@@ -10,4 +10,5 @@ urlpatterns = patterns(
     url(r'^all/$', 'mysite.views.show_all'),
     url(r'^product/(?P<product_slug>.*)/$', 'mysite.views.product_detail'),
     url(r'^create/$', 'mysite.views.create'),
+    url(r'^search/$', 'mysite.views.search_product'),
 )
