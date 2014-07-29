@@ -9,30 +9,42 @@
 {% block username %}
 <style xmlns="http://www.w3.org/1999/html">
     a{
-    color:#CCC;
+    color:#6bb8ef;
     }
     a:hover, a:active {
     display: block;
     float: left;
     text-decoration: none;
     text-decoration: underline;
-    color:#00F;
+    color:#6bb8ef;
     }
     a, a:visited {
     display: block;
     float: left;
     text-decoration: none;
     text-align: center;
-    color:#CCC;
+    color:#6bb8ef;
+    }
+
+    .hfour1 {
+        padding-top: 40px;
+        padding-left: 20px;
+    color: #6bb8ef;
+    }
+    .hfour2 {
+        padding-left: 20px;
+    }
+    .hfour3 {
+
+        padding-left: 20px;
     }
 </style>
-{% if user == "" %}
-<h2> Hi Friend </h2>
-<h3><a href="/accounts/login/"> Click here to login </a></h3>
-{% else %}
-<h2> Hi {{user}} </h2>
-<h3><a href="/accounts/logout/"> Logout </a></h3>
-{% endif %}
+    {% if user == "" %}
+    {% else %}
+    <h4 class="hfour1"> Hi {{user}} </h4>
+    <h4 class="hfour2"><a href="#"> Thông tin tài khoản </a> <br /></h4>
+    <h4 class="hfour3"><a href="/accounts/logout/"> Thoát </a></h4>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
